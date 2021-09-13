@@ -1,0 +1,112 @@
+.cart_wrapper {
+    height: 100vh;
+    max-width: 100%;
+    position: relative;
+}
+.card {
+    display: flex;
+    flex-wrap: wrap;
+    height: 400px;
+    width: 300px;
+    position: absolute;
+    top: 100px;
+    left: calc(50% - 150px);
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 10px;
+    border: 1px solid black;
+    padding: 10px;
+    z-index: 100;
+    background-color: red;
+}
+ul {
+    width: 100%;
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+a img {
+    width: 8px;
+}
+.right-link {
+    position: absolute;
+    top: 50%;
+    right: 5px;
+    transform: rotate(90deg);
+}
+.right-link img {
+    transform: rotate(-90deg);
+}
+
+
+.card.order3 {
+    /* transform: translate(60px, 30px); */
+    animation: change3to2 2s linear 0s infinite normal forwards, change2to1 2s linear 2s infinite normal forwards, change1start 2s linear 4s infinite normal forwards;
+    /* z-index: 10; */
+}
+.card.order2 {
+    /* transform: translateX(30px); */
+    animation: change2to1 2s linear 0s infinite normal forwards, change1start 2s linear 2s infinite normal forwards, change3to2 2s linear 4s infinite normal forwards;
+    /* z-index: 50; */
+}
+.card.order1 {
+    /* transform: translateY(-30px); */
+    animation: change1start 2s linear 0s infinite normal forwards, change3to2 2s linear 2s infinite normal forwards, change2to1 2s linear 4s infinite normal forwards;
+
+    /* z-index: 100; */
+}
+@keyframes change1start {
+    0% {
+        transform: translateY(-30px);
+        z-index: 100;
+    }
+    30% {
+        transform: translateY(-110%);
+        z-index: 30;
+        background-color: red;
+    }
+    60% {
+        transform: translate(60px, 30px);
+        z-index: 10;
+        background-color: red;
+    }
+    100% {
+        transform: translate(60px, 30px);
+        z-index: 10;
+        background-color: red;
+    }
+}
+@keyframes change3to2 {
+    0% {
+        transform: translate(60px, 30px);
+        z-index: 10;
+    }
+    50% {
+        transform: translateX(30px);
+        z-index: 50;
+    }
+    100% {
+        transform: translateX(30px);
+        z-index: 50;
+    }
+}
+@keyframes change2to1 {
+    0% {
+        transform: translateX(30px);
+        z-index: 20;
+    }
+    20% {
+        background-color: green; 
+    }
+    50% {
+        transform: translateY(-30px);
+        z-index: 100;
+        background-color: green;
+    }
+    100% {
+        transform: translateY(-30px);
+        z-index: 100;
+        background-color: green;
+    }
+}
